@@ -27,9 +27,9 @@ router.get('/list', function(req, res, next) {
 router.get('/thumbcount', (req, res, next) => {
     const id = req.query.id
     const result = updateThumbcount(id)
-    return result.then(res => {
-        if (res) {
-            res.json(new SuccessModel(res))
+    return result.then(result => {
+        if (result) {
+            res.json(new SuccessModel(result))
         } else {
             res.json(new ErrorModel('浏览量更新失败!'))
         }
